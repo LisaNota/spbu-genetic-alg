@@ -1,15 +1,6 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[3]:
-
-
 import numpy as np
 import tkinter as tk
 from tkinter import ttk
-
-
-# In[4]:
 
 
 class Genetic:
@@ -93,9 +84,6 @@ class Genetic:
         return population[parent_index]
 
 
-# In[5]:
-
-
 def inserted(place, num):
     place.delete(0, tk.END)
     place.insert(0, str(num))
@@ -106,9 +94,6 @@ def display_table(data):
         tree.delete(row)
     for row_data in data:
         tree.insert("", "end", values=row_data)
-
-
-# In[6]:
 
 
 def calculate_genetic_algorithm(encoding_type):
@@ -171,23 +156,16 @@ def calculate_genetic_algorithm(encoding_type):
     display_table(generations_data)
 
 
-# In[7]:
-
-
 root = tk.Tk()
 root.title("Генетический алгоритм для поиска минимума функции")
 root.geometry('800x450')
 
-#####     Рамки    ######
 
 canvas = tk.Canvas(root, width=1000, height=1000, borderwidth=0, highlightthickness=0)
 canvas.place(relx=0, rely=0.0)
 
 line1 = canvas.create_line(0, 210, 350, 210)
 line2 = canvas.create_line(350, 0, 350, 450)
-
-#########################
-
 
 frame_tree = ttk.Frame(root, borderwidth=2, relief="groove")
 frame_tree.place(relx=0.465, rely=0.3)
@@ -205,8 +183,6 @@ for col in columns:
     tree.column(col, width=100)
 
 tree.pack(expand=True, fill="both")
-
-##### Окно настроек #####
 
 lbl = tk.Label(root, text="Предварительные настройки", font=("Arial", 11) )
 lbl.place(relx=0.1, rely=0.01)
@@ -244,10 +220,6 @@ lblk3.place(relx=0.027, rely=0.395)
 maxGen = tk.Entry(root, width=7) 
 maxGen.insert(0, "50")
 maxGen.place(relx=0.35, rely=0.4)
-
-########################
-
-##### Управление  ######
 
 lbl4 = tk.Label(root, text="Управление", font=("Arial", 11))
 lbl4.place(relx=0.16, rely=0.48)
@@ -288,10 +260,6 @@ but5 = tk.Button(root, text="Рассчитать (вещественное ко
                 bg="#DDDDDD", activebackground="#CCCCCC", relief=tk.GROOVE)
 but5.place(relx=0.03, rely=0.8)
 
-########################
-
-#####  Результат  ######
-
 lbl6 = tk.Label(root, text="Результаты", font=("Arial", 11))
 lbl6.place(relx=0.65, rely=0.01)
 
@@ -301,8 +269,4 @@ lbl5.place(relx=0.465, rely=0.075)
 canvas2 = tk.Canvas(root, width=393, height=50, bg="white", borderwidth=1, highlightbackground="#CCCCCC", highlightthickness=2)
 canvas2.place(relx=0.465, rely=0.14)
 
-########################
-
-
 root.mainloop()
-
